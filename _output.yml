@@ -8,3 +8,7 @@ bookdown::gitbook:
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
     download: no
+  lib_dir: "libs"
+  self_contained: false
+  includes:
+    in_header: "includes/share-this.html"
