@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 2 Opening GitHub Issues by Selecting Text | A Minimal Example of Opening GitHub Issues with Selecting Text</title>
+  <meta name="description" content="This is a minimal example of using JavaScript to open issues with selected text from a webpage.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 2 Opening GitHub Issues by Selecting Text | A Minimal Example of Opening GitHub Issues with Selecting Text" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using JavaScript to open issues with selected text from a webpage." />
+  <meta name="github-repo" content="jrnold/bookdown-github-issues" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Opening GitHub Issues by Selecting Text | A Minimal Example of Opening GitHub Issues with Selecting Text" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using JavaScript to open issues with selected text from a webpage." />
+  
+
+<meta name="author" content="Jeffrey Arnold">
+
+
+<meta name="date" content="2019-01-15">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="selection-to-github.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="assets/share-this/share-this.css">
+<link rel="stylesheet" href="assets/share-this-github/styles.css">
+<script defer src="assets/share-this/share-this.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
+<!-- uncomment to include other sharers-->
+<!-- <script defer src="assets/share-this/sharers/email.js"></script> -->
+<!-- <script defer src="assets/share-this/sharers/facebook.js"></script> -->
+<!-- <script defer src="assets/share-this/sharers/linked-in.js"></script> -->
+<!-- <script defer src="assets/share-this/sharers/reddit.js"></script> -->
+<script defer src="assets/share-this/sharers/twitter.js"></script>
+<script defer src="assets/share-this-github/index.js"></script>
+<!-- this must go last -->
+<script defer src="share-this-config.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Opening GitHub Issues by Selecting Text</a></li>
+<li class="chapter" data-level="2" data-path="opening-github-issues-by-selecting-text-1.html"><a href="opening-github-issues-by-selecting-text-1.html"><i class="fa fa-check"></i><b>2</b> Opening GitHub Issues by Selecting Text</a></li>
+<li class="chapter" data-level="3" data-path="selection-to-github.html"><a href="selection-to-github.html"><i class="fa fa-check"></i><b>3</b> Selection to GitHub</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Example of Opening GitHub Issues with Selecting Text</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="opening-github-issues-by-selecting-text-1" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Opening GitHub Issues by Selecting Text</h1>
+<p>This bookdown document is a proof-of-concept for opening GitHub issues from a <a href="https://medium.com/">Medium-like</a> selection of text on a page.</p>
+<p>The envisioned use case is a reader spots a typo. They select the text.
+A popup opens with a button to click to open a GitHub issue. If they click on it, then they are taken to a new page to open GitHub issus. The issue’s message is pre-filled with the text that they selected and a link to the page on which they found it.</p>
+<p>The <a href="https://github.com/MaxArt2501/share-this">share-this</a> provides the ability to share selections of text from a page.
+I extended it by writing a new GitHub sharer.
+This also depends on <a href="https://fontawesome.com/">FontAwesome</a> for the GitHub icon.</p>
+<p>The GitHub sharer needs to be configured with the GitHub repository associated with the site.</p>
+<pre><code>## // settings for ShareThis const shareThis = window.ShareThis; const twitterSharer = window.ShareThisViaTwitter;  // set this to your const githubRepo = &quot;jrnold/r4ds-exercise-solutions&quot;; // optionally add a github label to use const githubIssueLabel = null; const githubSharer = new GitHubIssueSharer(githubRepo, label = githubIssueLabel);  const selectionShare = shareThis({     sharers: [ githubSharer, twitterSharer ] }); selectionShare.init();</code></pre>
+<p>The necessary files for this are:</p>
+<ul>
+<li><code>assets/share-this/*</code>: distribution files copied from</li>
+<li><code>assets/share-this-github/*</code>: Javascript and CSS assets for the GitHub sharer</li>
+<li><code>includes/share-this.html</code>: A snippet of HTML included in each HTML page by bookdown. Some lines could be uncommented to load other sharers.</li>
+</ul>
+<p>Add this line</p>
+<pre><code>bookdown::gitbook:
+  css: style.css
+  config:
+    toc:
+      before: |
+        &lt;li&gt;&lt;a href=&quot;./&quot;&gt;A Minimal Book Example&lt;/a&gt;&lt;/li&gt;
+      after: |
+        &lt;li&gt;&lt;a href=&quot;https://github.com/rstudio/bookdown&quot; target=&quot;blank&quot;&gt;Published with bookdown&lt;/a&gt;&lt;/li&gt;
+    edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
+    download: no
+  lib_dir: &quot;libs&quot;
+  self_contained: false
+  includes:
+    in_header: &quot;includes/share-this.html&quot;
+</code></pre>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="selection-to-github.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
