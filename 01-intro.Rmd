@@ -1,21 +1,40 @@
-# Introduction {#intro}
+# Opening GitHub Issues by Selecting Text
 
-You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+This bookdown document is a proof-of-concept for opening GitHub issues from a  [Medium-like](https://medium.com/) selection of text on a page.
 
-Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
+The envisioned use case is a reader spots a typo. They select the text.
+A popup opens with a button to click to open a GitHub issue. If they click on it, then they are taken to a new page to open GitHub issus. The issue's message is pre-filled with the text that they selected and a link to the page on which they found it.
 
-```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
-par(mar = c(4, 4, .1, .1))
-plot(pressure, type = 'b', pch = 19)
+The [share-this](https://github.com/MaxArt2501/share-this) provides the ability to share selections of text from a page.
+I extended it by writing a new GitHub sharer.
+This also depends on [FontAwesome](https://fontawesome.com/) for the GitHub icon.
+
+The GitHub sharer needs to be configured with the GitHub repository associated with the site.
+```{r echo=FALSE}
+cat(readLines("share-this-config.js"))
 ```
 
-Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
+The necessary files for this are:
 
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
+-   `assets/share-this/*`: distribution files copied from 
+-   `assets/share-this-github/*`: Javascript and CSS assets for the GitHub sharer
+-   `includes/share-this.html`: A snippet of HTML included in each HTML page by bookdown. Some lines could be uncommented to load other sharers.
+
+Add this line
 ```
+bookdown::gitbook:
+  css: style.css
+  config:
+    toc:
+      before: |
+        <li><a href="./">A Minimal Book Example</a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
+    download: no
+  lib_dir: "libs"
+  self_contained: false
+  includes:
+    in_header: "includes/share-this.html"
 
-You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
+```

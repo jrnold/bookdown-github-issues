@@ -1,15 +1,4 @@
---- 
-title: "A Minimal Example of Opening GitHub Issues with Selecting Text"
-author: "Jeffrey Arnold"
-date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
-output: bookdown::gitbook
-documentclass: book
-github-repo: jrnold/bookdown-github-issues
-description: "This is a minimal example of using JavaScript to open issues with selected text from a webpage."
----
-
-# Opening GitHub Issues by Selecting Text
+# Selection to GitHub
 
 This bookdown document is a proof-of-concept for opening GitHub issues from a  [Medium-like](https://medium.com/) selection of text on a page.
 
@@ -25,19 +14,7 @@ The GitHub sharer needs to be configured with the GitHub repository associated w
 cat(readLines("share-this-config.js"))
 ```
 
-The necessary files for this are:
-
 -   `assets/share-this/*`: distribution files copied from 
 -   `assets/share-this-github/*`: Javascript and CSS assets for the GitHub sharer
 -   `includes/share-this.html`: A snippet of HTML included in each HTML page by bookdown. Some lines could be uncommented to load other sharers.
--   `share-this-config.js`: Configuration for `share-this-github`.
-    You need to set the repository information here.
 
-Add this line to `_output.yml`:
-```yaml
-bookdown::gitbook:
-  # ...
-  includes:
-    in_header:
-    - "includes/share-this.html"
-```
