@@ -190,16 +190,18 @@ Copy these files into your bookdown repository:</p>
 It needs to be configured with the GitHub repository associated with the site.</p>
 <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// settings for ShareThis</span>
 <span class="kw">const</span> shareThis <span class="op">=</span> <span class="va">window</span>.<span class="at">ShareThis</span><span class="op">;</span>
-<span class="kw">const</span> twitterSharer <span class="op">=</span> <span class="va">window</span>.<span class="at">ShareThisViaTwitter</span><span class="op">;</span>
+<span class="co">// uncomment to load a twitter sharer</span>
+<span class="co">// const twitterSharer = window.ShareThisViaTwitter;</span>
 
 <span class="co">// set this to your</span>
-<span class="kw">const</span> githubRepo <span class="op">=</span> <span class="st">&quot;jrnold/r4ds-exercise-solutions&quot;</span><span class="op">;</span>
+<span class="kw">const</span> githubRepo <span class="op">=</span> <span class="st">&quot;jrnold/bookdown-github-issues&quot;</span><span class="op">;</span>
 <span class="co">// optionally add a github label to use</span>
 <span class="kw">const</span> githubIssueLabel <span class="op">=</span> <span class="kw">null</span><span class="op">;</span>
 <span class="kw">const</span> githubSharer <span class="op">=</span> <span class="kw">new</span> <span class="at">GitHubIssueSharer</span>(githubRepo<span class="op">,</span> label <span class="op">=</span> githubIssueLabel)<span class="op">;</span>
 
 <span class="kw">const</span> selectionShare <span class="op">=</span> <span class="at">shareThis</span>(<span class="op">{</span>
-    <span class="dt">sharers</span><span class="op">:</span> [ githubSharer<span class="op">,</span> twitterSharer ]
+    <span class="co">// sharers: [ githubSharer, twitterSharer ]</span>
+    <span class="dt">sharers</span><span class="op">:</span> [ githubSharer ]
 <span class="op">}</span>)<span class="op">;</span>
 <span class="va">selectionShare</span>.<span class="at">init</span>()<span class="op">;</span></code></pre>
 <p>Add this line to <code>_output.yml</code>:</p>
