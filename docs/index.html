@@ -25,7 +25,7 @@
 <meta name="author" content="Jeffrey Arnold">
 
 
-<meta name="date" content="2019-01-15">
+<meta name="date" content="2019-01-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 
-<link rel="next" href="opening-github-issues-by-selecting-text-1.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -143,9 +143,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Opening GitHub Issues by Selecting Text</a></li>
-<li class="chapter" data-level="2" data-path="opening-github-issues-by-selecting-text-1.html"><a href="opening-github-issues-by-selecting-text-1.html"><i class="fa fa-check"></i><b>2</b> Opening GitHub Issues by Selecting Text</a></li>
-<li class="chapter" data-level="3" data-path="selection-to-github.html"><a href="selection-to-github.html"><i class="fa fa-check"></i><b>3</b> Selection to GitHub</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#opening-github-issues-by-selecting-text"><i class="fa fa-check"></i>Opening GitHub Issues by Selecting Text</a><ul>
+<li class="chapter" data-level="" data-path=""><a href="#setup"><i class="fa fa-check"></i>Setup</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -169,26 +169,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">A Minimal Example of Opening GitHub Issues with Selecting Text</h1>
 <p class="author"><em>Jeffrey Arnold</em></p>
-<p class="date"><em>2019-01-15</em></p>
+<p class="date"><em>2019-01-17</em></p>
 </div>
-<div id="opening-github-issues-by-selecting-text" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Opening GitHub Issues by Selecting Text</h1>
+<div id="opening-github-issues-by-selecting-text" class="section level1 unnumbered">
+<h1>Opening GitHub Issues by Selecting Text</h1>
 <p>This bookdown document is a proof-of-concept for opening GitHub issues from a <a href="https://medium.com/">Medium-like</a> selection of text on a page.</p>
 <p>The envisioned use case is a reader spots a typo. They select the text.
 A popup opens with a button to click to open a GitHub issue. If they click on it, then they are taken to a new page to open GitHub issus. The issue’s message is pre-filled with the text that they selected and a link to the page on which they found it.</p>
 <p>The <a href="https://github.com/MaxArt2501/share-this">share-this</a> provides the ability to share selections of text from a page.
 I extended it by writing a new GitHub sharer.
 This also depends on <a href="https://fontawesome.com/">FontAwesome</a> for the GitHub icon.</p>
-<p>The GitHub sharer needs to be configured with the GitHub repository associated with the site.</p>
-<pre><code>## // settings for ShareThis const shareThis = window.ShareThis; const twitterSharer = window.ShareThisViaTwitter;  // set this to your const githubRepo = &quot;jrnold/r4ds-exercise-solutions&quot;; // optionally add a github label to use const githubIssueLabel = null; const githubSharer = new GitHubIssueSharer(githubRepo, label = githubIssueLabel);  const selectionShare = shareThis({     sharers: [ githubSharer, twitterSharer ] }); selectionShare.init();</code></pre>
-<p>The necessary files for this are:</p>
+<div id="setup" class="section level2 unnumbered">
+<h2>Setup</h2>
+<p>Right now this is a proof of concept, so the only method is manually copying what is done in this repository.
+Copy these files into your bookdown repository:</p>
 <ul>
-<li><code>assets/share-this/*</code>: distribution files copied from</li>
-<li><code>assets/share-this-github/*</code>: Javascript and CSS assets for the GitHub sharer</li>
+<li><code>assets/share-this/*</code>: distribution files copied from the share-this Javascript package.</li>
+<li><code>assets/share-this-github/*</code>: JavaScript and CSS assets for the GitHub sharer</li>
 <li><code>includes/share-this.html</code>: A snippet of HTML included in each HTML page by bookdown. Some lines could be uncommented to load other sharers.</li>
-<li><code>share-this-config.js</code>: Configuration for <code>share-this-github</code>.
-You need to set the repository information here.</li>
 </ul>
+<p>Configuration and initialization is handled by the <code>share-this-config.js</code> file.
+It needs to be configured with the GitHub repository associated with the site.</p>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// settings for ShareThis</span>
+<span class="kw">const</span> shareThis <span class="op">=</span> <span class="va">window</span>.<span class="at">ShareThis</span><span class="op">;</span>
+<span class="kw">const</span> twitterSharer <span class="op">=</span> <span class="va">window</span>.<span class="at">ShareThisViaTwitter</span><span class="op">;</span>
+
+<span class="co">// set this to your</span>
+<span class="kw">const</span> githubRepo <span class="op">=</span> <span class="st">&quot;jrnold/r4ds-exercise-solutions&quot;</span><span class="op">;</span>
+<span class="co">// optionally add a github label to use</span>
+<span class="kw">const</span> githubIssueLabel <span class="op">=</span> <span class="kw">null</span><span class="op">;</span>
+<span class="kw">const</span> githubSharer <span class="op">=</span> <span class="kw">new</span> <span class="at">GitHubIssueSharer</span>(githubRepo<span class="op">,</span> label <span class="op">=</span> githubIssueLabel)<span class="op">;</span>
+
+<span class="kw">const</span> selectionShare <span class="op">=</span> <span class="at">shareThis</span>(<span class="op">{</span>
+    <span class="dt">sharers</span><span class="op">:</span> [ githubSharer<span class="op">,</span> twitterSharer ]
+<span class="op">}</span>)<span class="op">;</span>
+<span class="va">selectionShare</span>.<span class="at">init</span>()<span class="op">;</span></code></pre>
 <p>Add this line to <code>_output.yml</code>:</p>
 <pre class="sourceCode yaml"><code class="sourceCode yaml">bookdown:<span class="fu">:gitbook:</span>
   <span class="co"># ...</span>
@@ -197,13 +212,14 @@ You need to set the repository information here.</li>
     <span class="kw">-</span> <span class="st">&quot;includes/share-this.html&quot;</span></code></pre>
 
 </div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
 
-<a href="opening-github-issues-by-selecting-text-1.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -9,7 +9,7 @@ github-repo: jrnold/bookdown-github-issues
 description: "This is a minimal example of using JavaScript to open issues with selected text from a webpage."
 ---
 
-# Opening GitHub Issues by Selecting Text
+# Opening GitHub Issues by Selecting Text {-}
 
 This bookdown document is a proof-of-concept for opening GitHub issues from a  [Medium-like](https://medium.com/) selection of text on a page.
 
@@ -20,18 +20,34 @@ The [share-this](https://github.com/MaxArt2501/share-this) provides the ability 
 I extended it by writing a new GitHub sharer.
 This also depends on [FontAwesome](https://fontawesome.com/) for the GitHub icon.
 
-The GitHub sharer needs to be configured with the GitHub repository associated with the site.
-```{r echo=FALSE}
-cat(readLines("share-this-config.js"))
-```
+## Setup {-}
 
-The necessary files for this are:
+Right now this is a proof of concept, so the only method is manually copying what is done in this repository.
+Copy these files into your bookdown repository:
 
--   `assets/share-this/*`: distribution files copied from 
--   `assets/share-this-github/*`: Javascript and CSS assets for the GitHub sharer
+-   `assets/share-this/*`: distribution files copied from the share-this Javascript package.
+-   `assets/share-this-github/*`: JavaScript and CSS assets for the GitHub sharer
 -   `includes/share-this.html`: A snippet of HTML included in each HTML page by bookdown. Some lines could be uncommented to load other sharers.
--   `share-this-config.js`: Configuration for `share-this-github`.
-    You need to set the repository information here.
+
+Configuration and initialization is handled by the `share-this-config.js` file.
+It needs to be configured with the GitHub repository associated with the site.
+
+```javascript
+// settings for ShareThis
+const shareThis = window.ShareThis;
+const twitterSharer = window.ShareThisViaTwitter;
+
+// set this to your
+const githubRepo = "jrnold/r4ds-exercise-solutions";
+// optionally add a github label to use
+const githubIssueLabel = null;
+const githubSharer = new GitHubIssueSharer(githubRepo, label = githubIssueLabel);
+
+const selectionShare = shareThis({
+    sharers: [ githubSharer, twitterSharer ]
+});
+selectionShare.init();
+```
 
 Add this line to `_output.yml`:
 ```yaml
