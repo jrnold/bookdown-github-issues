@@ -9,6 +9,7 @@ const githubIssueLabel = null;
 const githubSharer = new GitHubIssueSharer(githubRepo, label = githubIssueLabel);
 
 const selectionShare = shareThis({
-    sharers: [ githubSharer, twitterSharer ]
+    // sharers: [ githubSharer, twitterSharer ]
+    sharers: [ githubSharer ]
 });
 selectionShare.init();
