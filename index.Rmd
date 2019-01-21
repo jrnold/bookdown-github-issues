@@ -12,20 +12,30 @@ description: "This is a minimal example of using JavaScript to open issues with 
 # Opening GitHub Issues by Selecting Text {-}
 
 This bookdown document is a proof-of-concept for opening GitHub issues from a  [Medium-like](https://medium.com/) selection of text on a page.
+The envisioned use case for this is opening GitHub issues for typos in webpages.
 
-The envisioned use case is a reader spots a typo. They select the text.
-A popup opens with a button to click to open a GitHub issue. If they click on it, then they are taken to a new page to open GitHub issus. The issue's message is pre-filled with the text that they selected and a link to the page on which they found it.
+To use, select some text on the page. A popover will appear with options, including opening a GitHub issue.
+
+![Screenshot of text selected on a page with a popover that has a GitHub icon ](img/screenshot-1.png)
+
+Click on the GitHub icon in the popover.
+A new window will open with new GitHub issue for the repository.
+The body of the GitHub issue will be pre-filled with the text selection and a link
+to the page.
+
+![Screenshot of a new GitHub issue pre-filled with the selected text](img/screenshot-2.png)
+
+## Details {-}
 
 The [share-this](https://github.com/MaxArt2501/share-this) provides the ability to share selections of text from a page.
 I extended it by writing a new GitHub sharer.
-This also depends on [FontAwesome](https://fontawesome.com/) for the GitHub icon.
 
 ## Setup {-}
 
 Right now this is a proof of concept, so the only method is manually copying what is done in this repository.
 Copy these files into your bookdown repository:
 
--   `assets/share-this/*`: distribution files copied from the share-this Javascript package.
+-   `assets/share-this/*`: distribution files copied from the share-this JavaScript package.
 -   `assets/share-this-github/*`: JavaScript and CSS assets for the GitHub sharer
 -   `includes/share-this.html`: A snippet of HTML included in each HTML page by bookdown. Some lines could be uncommented to load other sharers.
 
@@ -59,3 +69,14 @@ bookdown::gitbook:
     in_header:
     - "includes/share-this.html"
 ```
+
+<!--
+## Notes
+
+-  https://medium.com/@FezVrasta/popper-js-v1-5e8b3acd888c
+-  https://github.com/xdamman/selection-sharer
+-  https://github.com/mvanlonden/react-selection-popover
+-  https://www.bennadel.com/blog/3439-creating-a-medium-inspired-text-selection-directive-in-angular-5-2-10.htm
+- https://medium.com/@mayneweb/a-medium-like-popover-without-jquery-3975c2beb422
+
+-->
